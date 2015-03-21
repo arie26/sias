@@ -1,11 +1,11 @@
 <?php
 
-Yii::import('application.models._base.BaseGuru');
+Yii::import('application.models._base.BaseUsers');
 
-class Guru extends BaseGuru
+class Users extends BaseUsers
 {
     /**
-     * @return Guru
+     * @return Users
      */
     public static function model($className = __CLASS__)
     {
@@ -14,7 +14,7 @@ class Guru extends BaseGuru
 
     public static function label($n = 1)
     {
-        return Yii::t('app', 'Guru|Gurus', $n);
+        return Yii::t('app', 'Users|Users', $n);
     }
 
 }

@@ -42,6 +42,14 @@
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/ace-rtl.min.css" />
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/ace-skins.min.css" />
 
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/jquery-ui-1.10.3.custom.min.css" />
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/chosen.css" />
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/datepicker.css" />
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/bootstrap-timepicker.css" />
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/daterangepicker.css" />
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/colorpicker.css" />
+
+		
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/media/css/ace-ie.min.css" />
 		<![endif]-->
@@ -218,11 +226,15 @@
 								?>
 								<small>
 									<i class="icon-double-angle-right"></i>
-									<?php
-									if (Yii::app()->getRequest()->getPathInfo() == 'guru/list'){
+									<?php 
+									if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/list'){
 										echo 'Data Guru';
-									} else if (Yii::app()->getRequest()->getPathInfo() == 'guru/add'){
+									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/add'){
 										echo 'Add Data Guru';
+									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/edit'){
+										echo 'Edit Data Guru';
+									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/view'){
+										echo 'Profile Guru';
 									}
 									?>
 								</small>
@@ -264,20 +276,28 @@
 		<!--[if !IE]> -->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='<?php //echo Yii::app()->request->baseUrl; ?>/media/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
 		</script>
 
 		<!-- <![endif]-->
 
 		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='<?php// echo Yii::app()->request->baseUrl; ?>/media/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
 
 		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if("ontouchend" in document) document.write("<script src='<?php //echo Yii::app()->request->baseUrl; ?>/media/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
+		
+		<!-- core JS-->
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery-1.8.3.min.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/bs3/js/bootstrap.min.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery-ui-1.9.2.custom.min.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery-ui-1.10.3.custom.min.js"></script>
+		
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/bootstrap.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/typeahead-bs2.min.js"></script>
 
@@ -292,7 +312,6 @@
 		  <script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/excanvas.min.js"></script>
 		<![endif]-->
 
-		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.slimscroll.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.easy-pie-chart.min.js"></script>
@@ -302,7 +321,6 @@
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/flot/jquery.flot.resize.min.js"></script>
 		
 		<!-- page specific plugin scripts -->
-
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/fuelux/fuelux.wizard.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.validate.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/additional-methods.min.js"></script>
@@ -310,7 +328,6 @@
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/select2.min.js"></script>
 		
 		<!-- page specific plugin scripts  wysiwyg -->
-
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/markdown/markdown.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/markdown/bootstrap-markdown.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.hotkeys.min.js"></script>
@@ -329,12 +346,14 @@
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/bootstrap-tag.min.js"></script>
 		
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/jquery.gritter.min.js"></script>
+		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/spin.min.js"></script>
 		
 		<!-- ace scripts -->
-
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/ace-elements.min.js"></script>
 		<script src="<?php echo Yii::app()->request->baseUrl; ?>/media/js/ace.min.js"></script>
 
+		
 		<!-- inline scripts related to this page -->
 
 		<script type="text/javascript">
@@ -393,7 +412,7 @@
 				var oTable1 = $('#guru').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
-			      null, null, null, null,
+			      null, null, null, null, null,
 				  { "bSortable": false }
 				] } );
 				
@@ -453,17 +472,6 @@
 				  { "bSortable": false }
 				] } );
 				
-				$('table th input:checkbox').on('click' , function(){
-					var that = this;
-					$(this).closest('table').find('tr > td:first-child input:checkbox')
-					.each(function(){
-						this.checked = that.checked;
-						$(this).closest('tr').toggleClass('selected');
-					});
-						
-				});
-			
-			
 				$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 				function tooltip_placement(context, source) {
 					var $source = $(source);
@@ -478,6 +486,16 @@
 					return 'left';
 				}
 				
+				$('table th input:checkbox').on('click' , function(){
+					var that = this;
+					$(this).closest('table').find('tr > td:first-child input:checkbox')
+					.each(function(){
+						this.checked = that.checked;
+						$(this).closest('tr').toggleClass('selected');
+					});
+						
+				});
+							
 				$('.easy-pie-chart.percentage').each(function(){
 					var $box = $(this).closest('.infobox');
 					var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
@@ -501,7 +519,15 @@
 				});
 			
 			
-				//$('#profil').ace_wysiwyg();//this will create the default editor will all buttons
+			$("#bootbox-confirm").on(ace.click_event, function() {
+				bootbox.confirm("Are you sure?", function(result) {
+					if(result) {
+					
+					}
+				});
+			});
+			
+	//$('#profil').ace_wysiwyg();//this will create the default editor will all buttons
 
 	//but we want to change a few buttons colors for the third style
 	$('#profil').ace_wysiwyg({
@@ -558,12 +584,13 @@
 	});
 	
 	$('#id-input-file-1 , #id-input-file-2').ace_file_input({
-		no_file:'JPG / PNG',
+		no_file:'JPG/PNG, MAX: 200kb',
 		btn_choose:'Choose',
 		btn_change:'Change',
 		droppable:false,
 		onchange:null,
-		thumbnail:false //| true | large
+		thumbnail:false
+		//| true | large
 		//whitelist:'gif|png|jpg|jpeg'
 		//blacklist:'exe|php'
 		//onchange:''

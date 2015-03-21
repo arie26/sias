@@ -45,7 +45,7 @@ class SiteController extends Controller
         }else{
             $login = $_POST['login'];
 
-            $user=User::model()->findByAttributes(array('username'=>$login['username']));
+            $user=Users::model()->findByAttributes(array('username'=>$login['username']));
 
             if($user==null){
                 $this->renderPartial('index',

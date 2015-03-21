@@ -173,8 +173,8 @@ return array(
 
 	'params'=>array(
 		'adminEmail'=>'webmaster@example.com',
-        'uploadFolder'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'../../../../files/Amatir',
-        'attachmentFolder'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'../../../../files/Amatir/email',
+        'uploadFolder'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'../../../../Files_SIAS/',
+        //'attachmentFolder'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'../../../../files/Amatir/email',
 
         'webservice'=>array(
             'barcode' => 'http://10.1.25.25/barcode/barcode.php',

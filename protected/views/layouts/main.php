@@ -416,10 +416,10 @@
 				  { "bSortable": false }
 				] } );
 				
-				var oTable2 = $('#submenu').dataTable( {
+				var oTable2 = $('#siswa').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
-			      null, null,null,
+			      null, null, null, null,
 				  { "bSortable": false }
 				] } );
 				

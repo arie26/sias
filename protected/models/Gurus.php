@@ -21,7 +21,7 @@ class Gurus extends BaseGurus
 	{
 		date_default_timezone_set("Asia/Jakarta");
 		$currenttime = time();
-		$n = Yii::app()->dateFormatter->format('dMMyyyy',$currenttime);
+		//$n = Yii::app()->dateFormatter->format('dMMyyyy',$currenttime);
 		
 		$model = Gurus::model()->find(array('order'=>'id_guru DESC'));
 		
@@ -48,13 +48,5 @@ class Gurus extends BaseGurus
 				return $nip_tanggal."0".$n;
 			}
 		} 
-		
-		
-		
-
-		
-		//return $nip_tanggal;
-		//$existUsers = Users::model()->findAll("user_name like '".$username."%'");
 	}
-
 }

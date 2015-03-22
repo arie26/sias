@@ -1,6 +1,6 @@
 <?php
 
-class GuruController extends Controller
+class SiswaController extends Controller
 {
 	// Uncomment the following methods and override them if needed
 	/*
@@ -29,10 +29,7 @@ class GuruController extends Controller
 	}
 	*/
 	
-	 /**
-     * Declares class-based actions.
-     */
-    public function actions()
+	public function actions()
     {
         return array(
             // captcha action renders the CAPTCHA image displayed on the contact page
@@ -47,43 +44,31 @@ class GuruController extends Controller
             ),
         );
     }
-	
-    /**
-     * Performs the AJAX validation.
-     * @param CModel the model to be validated
-     */
-    protected function performAjaxValidation($model, $form=null)
-    {
-        if(isset($_POST['ajax']) && $_POST['ajax'] === 'registrants-form')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-    }
-		
+
 	public function actionList()
 	{
-		$guru = Gurus::model()->findAll("status != -1");
+		$siswa = Siswas::model()->findAll("status != -1");
 		
-		$this->render("list", array("gurus" => $guru));
+		$this->render("list", array("siswas" => $siswa));
 	}
 	
 	public function actionView($id)
 	{
 		$id = Yii::app()->getSecurityManager()->decrypt($id);
-		$guru = Gurus::model()->findByPK($id);
+		$siswa = Siswas::model()->findByPK($id);
 		
-		$this->render("view", array("gurus" => $guru));
+		$this->render("view", array("siswas" => $siswa));
 	}
 	
 	public function actionAdd()
 	{
-		$model = new Gurus;
+		$model = new Siswas;
 		
-		if(isset($_POST['Gurus']))
+		if(isset($_POST['Siswas']))
         {
-			$model->attributes = $_POST['Gurus'];
-			$model->nip = $model->actionGenerateNip();
+			$model->attributes = $_POST['Siswas'];
+			$model->nis = $model->actionGenerateNis();
+			$model->tahun_masuk = $tahun_terakhir = substr($model->actionGenerateNis(),7,4);
 			
 			if($model->tanggal_lahir != null)
 			{
@@ -100,40 +85,41 @@ class GuruController extends Controller
 			
 			if($model->save()) 
 			{	
-                $dir = Yii::app()->params['uploadFolder'].'/Guru/';
+                $dir = Yii::app()->params['uploadFolder'].'/Siswa/';
 
-                if(!is_dir($dir.$model->nip)){
-                    mkdir($dir.$model->nip);
+                if(!is_dir($dir.$model->nis)){
+                    mkdir($dir.$model->nis);
 				}
 					
 				if($uploadFoto != null){
-					$uploadFoto->saveAs(Yii::app()->params['uploadFolder'].'/Guru/'.$model->nip.'/'.$uploadFoto);
-					chmod(Yii::app()->params['uploadFolder'].'/Guru/'.$model->nip.'/'.$uploadFoto,0750);
+					$uploadFoto->saveAs(Yii::app()->params['uploadFolder'].'/Siswa/'.$model->nis.'/'.$uploadFoto);
+					chmod(Yii::app()->params['uploadFolder'].'/Siswa/'.$model->nis.'/'.$uploadFoto,0750);
 				}
 			}
 			$this->redirect("list");
 		}
 		
-		$nip = $model->actionGenerateNip();
-		
-		$this->render("add",array('nip' => $nip, 'model' => $model));
+		$nis = $model->actionGenerateNis();
+		$tahun_masuk = $tahun_terakhir = substr($nis,7,4);
+			
+		$this->render("add",array('nis' => $nis, 'model' => $model, 'tahun_masuk' => $tahun_masuk));
 	}
 	
 	public function actionEdit($id)
 	{
 		if (isset($id)){
 			$id = Yii::app()->getSecurityManager()->decrypt($id);
-			$guru = Gurus::model()->findByPK($id);
+			$siswa = Siswas::model()->findByPK($id);
 			
-			if($guru != null)
+			if($siswa != null)
 			{
-				$model = Gurus::model()->findByPK($id);				
+				$model = Siswas::model()->findByPK($id);				
 				
-				if(isset($_POST['Gurus']))
+				if(isset($_POST['Siswas']))
 				{
-					$model->attributes = $_POST['Gurus'];
-					$model->id_guru = $guru->id_guru;
-					$model->nip = $guru->nip;
+					$model->attributes = $_POST['Siswas'];
+					$model->id_siswa = $siswa->id_siswa;
+					$model->nis = $siswa->nis;
 					
 					if($model->tanggal_lahir != null){
 						$model->tanggal_lahir = Yii::app()->dateFormatter->format('yyyy-MM-dd',$model->tanggal_lahir);
@@ -143,7 +129,7 @@ class GuruController extends Controller
 					
 					$model->foto = $uploadFoto;
 					
-					$checkDir = Yii::app()->params['uploadFolder'].'/Guru/'.$model->nip;
+					$checkDir = Yii::app()->params['uploadFolder'].'/Siswa/'.$model->nis;
 
 					if(!is_dir($checkDir))
 					{
@@ -152,13 +138,13 @@ class GuruController extends Controller
 						
 					if(is_null($uploadFoto))
 					{
-						$model->foto = $guru->foto;
+						$model->foto = $siswa->foto;
 					} 
 					else 
 					{
 						$model->foto = $uploadFoto;
-						$uploadFoto->saveAs(Yii::app()->params['uploadFolder'].'/Guru/'.$model->nip.'/'.$uploadFoto);
-						chmod(Yii::app()->params['uploadFolder'].'/Guru/'.$model->nip.'/'.$uploadFoto,0750);
+						$uploadFoto->saveAs(Yii::app()->params['uploadFolder'].'/Siswa/'.$model->nis.'/'.$uploadFoto);
+						chmod(Yii::app()->params['uploadFolder'].'/Siswa/'.$model->nis.'/'.$uploadFoto,0750);
 					}
 					
 					if($model->update()){
@@ -166,7 +152,7 @@ class GuruController extends Controller
                     }
 				}
 				
-				$this->render('edit', array("gurus" => $guru));
+				$this->render('edit', array("siswas" => $siswa));
 			}
 		}
 	}
@@ -176,31 +162,31 @@ class GuruController extends Controller
 		if (isset($id))
 		{
 			$id = Yii::app()->getSecurityManager()->decrypt($id);
-			$guru = Gurus::model()->findByPK($id);
+			$siswa = Siswas::model()->findByPK($id);
 			
-			$guru->status = -1;
+			$siswa->status = -1;
 			
-			if($guru->update()){
+			if($siswa->update()){
 				$this->redirect(array('list'));
 			}
 		}
 	}
 	
-	public function actionShowimage($id)
+		public function actionShowimage($id)
     {
         $id = Yii::app()->getSecurityManager()->decrypt($id);
-        $guru = Gurus::model()->findByPk($id);
+        $siswa = Siswas::model()->findByPk($id);
 		
-        if ($guru != null){
-            if (isset($guru->foto))
+        if ($siswa != null){
+            if (isset($siswa->foto))
             {
-                $path =  Yii::app()->params['uploadFolder'].'/Guru/'.$guru->nip.'/';//Yii::getPathOfAlias('application.images'). '/';
+                $path =  Yii::app()->params['uploadFolder'].'/Siswa/'.$siswa->nis.'/';//Yii::getPathOfAlias('application.images'). '/';
 
-                if (file_exists($path.$guru->foto))
+                if (file_exists($path.$siswa->foto))
                 {
                     Yii::app()->request->sendFile(
-                        $guru->foto,
-                        file_get_contents($path.$guru->foto)
+                        $siswa->foto,
+                        file_get_contents($path.$siswa->foto)
                     );
                 }
 
@@ -220,11 +206,11 @@ class GuruController extends Controller
 	
 	public function actionDownload_foto($id){
         $id = Yii::app()->getSecurityManager()->decrypt($id);
-        $guru = Gurus::model()->findByPk($id);
+        $siswa = Siswas::model()->findByPk($id);
 		
-        if ($guru != null)
+        if ($siswa != null)
 		{
-            $this->downloadFile("/Guru/".$guru->nip,$guru->foto);
+            $this->downloadFile("/Siswa/".$siswa->nis,$siswa->foto);
         }
 		else
 		{

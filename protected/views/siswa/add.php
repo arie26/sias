@@ -2,7 +2,7 @@
 	<div class="col-xs-12">
 		<div class="widget-box">
 			<div class="widget-header" >
-				<h5>Add Data Guru</h5>
+				<h5>Add Data siswa</h5>
 
 				<div class="widget-toolbar">
 					<a href="#" data-action="settings">
@@ -35,7 +35,7 @@
 					    return this;
 						};
 
-						$('#guru_nama, #guru_tempat_lahir, #guru_alamat').on('keyup', function () {
+						$('#siswa_nama, #siswa_tempat_lahir, #siswa_alamat, #siswa_orang_tua').on('keyup', function () {
 						    $(this).capitalize();
 						}).capitalize();
 
@@ -55,7 +55,7 @@
 			                }
 			            });
 
-						$('#guru_kontak').keydown(function(event) {
+						$('#siswa_kontak').keydown(function(event) {
 					    	// Allow only backspace and delete
 					    	if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
 					    		// let it happen, don't do anything
@@ -66,21 +66,21 @@
 					    			event.preventDefault();	
 					    		}	
 					    	}
-					    });
+					    });						
+			      }	  
 
-			      }
 			</script>
 			<div class="widget-body">
 				<div class="widget-main">
 					<div class='step-content row-fluid position-relative' id='step-container'>
 						<div class='step-pane active' id='step1'>
-							<form class='form-horizontal' enctype="multipart/form-data" id="addGuru" method="POST" action="<?php echo Yii::app()->getBaseUrl(true).'/guru/add'; ?>" >
+							<form class='form-horizontal' enctype="multipart/form-data" id="addsiswa" method="POST" action="<?php echo Yii::app()->getBaseUrl(true).'/siswa/add'; ?>" >
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_nip'>NIP<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_nis'>NIS<font color="red">*</font> :</label>
 
 									<div class='col-xs-12 col-sm-9'>
 										<div class='clearfix'>
-											<input class='col-xs-12 col-sm-6' type='text' name='Gurus[nip]' id='guru_nip' disabled="true" value="<?php echo $nip;?>" />
+											<input class='col-xs-12 col-sm-6' type='text' name='Siswas[nis]' id='siswa_nis' disabled="true" value="<?php echo $nis;?>" />
 										</div>
 									</div>
 								</div>
@@ -88,11 +88,11 @@
 								<div class='space-2'></div>
 								
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_nama'>Nama<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_nama'>Nama<font color="red">*</font> :</label>
 
 									<div class='col-xs-12 col-sm-9'>
 										<div class='clearfix'>
-											<input class='col-xs-12 col-sm-6' type='text' name='Gurus[nama]' id='guru_nama' required/>
+											<input class='col-xs-12 col-sm-6' type='text' name='Siswas[nama]' id='siswa_nama' required/>
 										</div>
 									</div>
 								</div>
@@ -100,43 +100,55 @@
 								<div class='space-2'></div>
 								
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_status'>Status<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_status'>Status<font color="red">*</font> :</label>
 									
 									<div class="col-xs-12 col-sm-6">
 										<div class="control-group">
 
 											<div class="radio">
 												<label>
-													<input  type="radio" value="1" name="Gurus[status]" id="guru_status" class="ace" checked="checked" required/>
+													<input  type="radio" value="1" name="Siswas[status]" id="siswa_status" class="ace" checked="checked" required/>
 													<span class="lbl"> Aktif</span>
 												</label>
 											</div>
 
 											<div class="radio">
 												<label>
-													<input  type="radio" value="2" name="Gurus[status]" id="guru_status" class="ace" />
-													<span class="lbl"> Cuti</span>
+													<input  type="radio" value="2" name="Siswas[status]" id="siswa_status" class="ace" />
+													<span class="lbl"> Lulus</span>
 												</label>
 											</div>
 
 											<div class="radio">
 												<label>
-													<input  type="radio" value="3" name="Gurus[status]" id="guru_status" class="ace" />
+													<input  type="radio" value="3" name="Siswas[status]" id="siswa_status" class="ace" />
 													<span class="lbl"> Keluar</span>
 												</label>
 											</div>
 										</div>
 									</div>
 								</div>
+								
+								<div class='space-2'></div>
+								
+								<div class='form-group'>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_tahun_masuk'>Tahun Masuk<font color="red">*</font> :</label>
+
+									<div class='col-xs-12 col-sm-9'>
+										<div class='clearfix'>
+											<input class='col-xs-12 col-sm-6' type='text' name='Siswas[tahun_masuk]' id='siswa_tahun_masuk' disabled="true" value="<?php echo $tahun_masuk; ?>" />
+										</div>
+									</div>
+								</div>
 
 								<div class='space-2'></div>
 								
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_tempat_lahir'>Tempat Lahir<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_tempat_lahir'>Tempat Lahir<font color="red">*</font> :</label>
 
 									<div class='col-xs-12 col-sm-9'>
 										<div class='clearfix'>
-											<input class='col-xs-12 col-sm-6' type='text' name='Gurus[tempat_lahir]' id='guru_tempat_lahir'  required/>
+											<input class='col-xs-12 col-sm-6' type='text' name='Siswas[tempat_lahir]' id='siswa_tempat_lahir'  required/>
 										</div>
 									</div>
 								</div>
@@ -144,11 +156,11 @@
 								<div class='space-2'></div>
 								
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_tanggal_lahir'>Tanggal Lahir<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_tanggal_lahir'>Tanggal Lahir<font color="red">*</font> :</label>
 									
 									<div class="col-xs-5 col-sm-3">
 										<div class="input-group">
-											<input class="form-control date-picker" id="id-date-picker-1" type="text" name='Gurus[tanggal_lahir]' data-date-format="dd-mm-yyyy" required/>
+											<input class="form-control date-picker" id="id-date-picker-1" type="text" name='Siswas[tanggal_lahir]' data-date-format="dd-mm-yyyy" required/>
 											<span class="input-group-addon">
 												<i class="icon-calendar bigger-110"></i>
 											</span>
@@ -159,11 +171,11 @@
 								<div class='space-2'></div>
 								
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_alamat'>Alamat<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_alamat'>Alamat<font color="red">*</font> :</label>
 
 									<div class='col-xs-12 col-sm-9'>
 										<div class='clearfix'> 
-											<textarea class="col-xs-12 col-sm-6" id="guru_alamat" name='Gurus[alamat]' required></textarea>
+											<textarea class="col-xs-12 col-sm-6" id="siswa_alamat" name='Siswas[alamat]' required></textarea>
 										</div>
 									</div>
 								</div>
@@ -171,11 +183,11 @@
 								<div class='space-2'></div>
 								
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_kontak'>Kontak<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_orang_tua'>Nama Orang Tua<font color="red">*</font> :</label>
 
 									<div class='col-xs-12 col-sm-9'>
 										<div class='clearfix'>
-											<input class='col-xs-12 col-sm-6' type='text' name='Gurus[kontak]' id='guru_kontak' required/>
+											<input class='col-xs-12 col-sm-6' type='text' name='Siswas[orang_tua]' id='siswa_orang_tua' required/>
 										</div>
 									</div>
 								</div>
@@ -183,47 +195,11 @@
 								<div class='space-2'></div>
 								
 								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_email'>Email<font color="red">*</font> :</label>
-
-									<div class='col-xs-12 col-sm-9'>
-										<div class='clearfix'>
-											<input class='col-xs-12 col-sm-6' type='email' placeholder="email@example.com" name='Gurus[email]' id='guru_email' required/>
-										</div>
-									</div>
-								</div>
-								
-								<div class='space-2'></div>
-								
-								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_gelar_depan'>Gelar Depan :</label>
-
-									<div class='col-xs-12 col-sm-9'>
-										<div class='clearfix'>
-											<input class='col-xs-12 col-sm-6' type='text' placeholder="contoh : Ir." name='Gurus[gelar_depan]' id='guru_gelar_depan' />
-										</div>
-									</div>
-								</div>
-								
-								<div class='space-2'></div>
-								
-								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_gelar_belakang'>Gelar Belakang :</label>
-
-									<div class='col-xs-12 col-sm-9'>
-										<div class='clearfix'>
-											<input class='col-xs-12 col-sm-6' type='text' placeholder="contoh : ST, MT" name='Gurus[gelar_belakang]' id='guru_gelar_belakang' />
-										</div>
-									</div>
-								</div>
-								
-								<div class='space-2'></div>
-								
-								<div class='form-group'>
-									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='guru_foto'>Foto<font color="red">*</font> :</label>
+									<label class='control-label col-xs-12 col-sm-2 no-padding-right' for='siswa_foto'>Foto<font color="red">*</font> :</label>
 
 									<div class='col-xs-12 col-sm-3'>
 										<div class='clearfix'>
-											<input type="file" id="id-input-file-1" name="Gurus[foto]" required/>
+											<input type="file" id="id-input-file-2" name="Siswas[foto]" id="confirm" required/>
 										</div>
 									</div>
 								</div>

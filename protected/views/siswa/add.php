@@ -2,7 +2,7 @@
 	<div class="col-xs-12">
 		<div class="widget-box">
 			<div class="widget-header" >
-				<h5>Add Data siswa</h5>
+				<h5>Tambah Data siswa</h5>
 
 				<div class="widget-toolbar">
 					<a href="#" data-action="settings">

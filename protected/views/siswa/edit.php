@@ -217,7 +217,7 @@
 
 									<div class='col-xs-12 col-sm-3'>
 										<div class='clearfix'>
-											<input type="file" id="id-input-file-2" name="Siswas[foto]" id="confirm" required/>
+											<input type="file" id="id-input-file-2" name="Siswas[foto]" id="confirm"/>
 										</div>
 									</div>
 								</div>

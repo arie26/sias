@@ -28,7 +28,7 @@
 					<a href="<?php echo Yii::app()->baseUrl; ?>/guru/add">
 						<button class='btn btn-danger'>
 							<i class='icon-plus align-top bigger-125'></i>
-							Add Data Guru
+							Tambah Data Guru
 						</button>
 					</a>
 					<div class='hr hr-18 dotted hr-double'></div>
@@ -84,7 +84,7 @@
 									</td>
 									<td>
 										<div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'>
-											<a class='blue' href="<?php echo Yii::app()->getBaseUrl(true)."/guru/view/".Yii::app()->getSecurityManager()->encrypt($guru->id_guru); ?>" title="Lihat">
+											<a class='blue' href="<?php echo Yii::app()->getBaseUrl(true)."/guru/view/".Yii::app()->getSecurityManager()->encrypt($guru->id_guru); ?>" title="Profil">
 												<i class='icon-zoom-in bigger-130'></i>
 											</a>
 										
@@ -105,7 +105,7 @@
 
 												<ul class='dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close'>
 													<li>
-														<a href="<?php echo Yii::app()->getBaseUrl(true)."/guru/view/".Yii::app()->getSecurityManager()->encrypt($guru->id_guru); ?>" class='tooltip-info' title='Lihat' data-rel="tooltip">
+														<a href="<?php echo Yii::app()->getBaseUrl(true)."/guru/view/".Yii::app()->getSecurityManager()->encrypt($guru->id_guru); ?>" class='tooltip-info' title='Profil' data-rel="tooltip">
 																<span class='blue'>
 																	<i class='icon-zoom-in bigger-120'></i>
 																</span>

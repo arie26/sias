@@ -49,7 +49,7 @@ class SiteController extends Controller
 
             if($user==null){
                 $this->renderPartial('index',
-                    array('message'=>"Wrong Username Or Password"));
+                    array('message'=>"Incorrect Username Or Password"));
             }else{
                 $masuk = password_verify($login['password'], $user->password);
 
@@ -59,7 +59,7 @@ class SiteController extends Controller
 
                 if (!$masuk){
                     $this->renderPartial('index',
-                        array('message'=>"Wrong Username Or Password"));
+                        array('message'=>"Incorrect Username Or Password"));
                 }else{
                     Yii::app()->session['id_user'] = $user->id_user;
                     Yii::app()->session['nama'] = $user->nama;

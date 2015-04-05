@@ -22,8 +22,8 @@
  * @property string $gelar_belakang
  * @property string $foto
  *
+ * @property Kelas $idKelas
  * @property Jadwal[] $jadwals
- * @property Kelas[] $kelases
  * @property User[] $users
  */
 abstract class BaseGurus extends AweActiveRecord {
@@ -43,7 +43,7 @@ abstract class BaseGurus extends AweActiveRecord {
     public function rules() {
         return array(
             array('nip, nama, status', 'required'),
-            array('status', 'numerical', 'integerOnly'=>true),
+            array(' status', 'numerical', 'integerOnly'=>true),
             array('nip, gelar_depan, gelar_belakang', 'length', 'max'=>10),
             array('nama, tempat_lahir, kontak, email, foto', 'length', 'max'=>45),
             array('alamat', 'length', 'max'=>100),
@@ -63,7 +63,6 @@ abstract class BaseGurus extends AweActiveRecord {
     public function relations() {
         return array(
             'jadwals' => array(self::HAS_MANY, 'Jadwal', 'id_guru'),
-            'kelases' => array(self::HAS_MANY, 'Kelas', 'wali_kelas'),
             'users' => array(self::HAS_MANY, 'User', 'id_guru'),
         );
     }
@@ -85,8 +84,8 @@ abstract class BaseGurus extends AweActiveRecord {
                 'gelar_depan' => Yii::t('app', 'Gelar Depan'),
                 'gelar_belakang' => Yii::t('app', 'Gelar Belakang'),
                 'foto' => Yii::t('app', 'Foto'),
+                'idKelas' => null,
                 'jadwals' => null,
-                'kelases' => null,
                 'users' => null,
         );
     }

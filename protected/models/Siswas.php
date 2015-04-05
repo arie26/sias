@@ -39,11 +39,11 @@ class Siswas extends BaseSiswas
 			
 			if($tahun_sekarang == $tahun_terakhir){
 				if(($nis_urut_terakhir+1) <= 9){
-					return "00".($nis_urut_terakhir+1);
+					return "SMA".$nis_tanggal."00".($nis_urut_terakhir+1);
 				}else if(($nis_urut_terakhir+1 >= 10) && ($nis_urut_terakhir+1 < 100) ){
-					return "0".($nis_urut_terakhir+1);
+					return "SMA".$nis_tanggal."0".($nis_urut_terakhir+1);
 				}else{
-					return ($nis_urut_terakhir+1);
+					return ("SMA".$nis_tanggal.$nis_urut_terakhir+1);
 				}
 			} else if($tahun_sekarang > $tahun_terakhir){
 				$n = 1;

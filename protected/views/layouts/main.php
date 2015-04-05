@@ -158,16 +158,15 @@
 					</div><!-- #sidebar-shortcuts -->
 
 					<ul class="nav nav-list">
-						<li class="active">
+						<li>
 							<a href="#">
 								<i class="icon-dashboard"></i>
 								<span class="menu-text"> Dashboard </span>
 							</a>
 						</li>
 						
-						<li>
-							<?php include "menu/menu.php"; ?>	<!--MENU-->
-						</li>
+						<?php include "menu/menu.php"; ?>	<!--MENU-->
+						
 					</ul><!-- /.nav-list -->
 
 					<div class="sidebar-collapse" id="sidebar-collapse">
@@ -192,8 +191,12 @@
 							</li>
 							<li>
 								<a href="#"><?php 
-									if (Yii::app()->getController()->getAction()->controller->id == 'guru'){
+									if (Yii::app()->getController()->getAction()->controller->id == 'guru' || Yii::app()->getController()->getAction()->controller->id == 'siswa' 
+									|| Yii::app()->getController()->getAction()->controller->id == 'mapel' || Yii::app()->getController()->getAction()->controller->id == 'kelas' 
+									|| Yii::app()->getController()->getAction()->controller->id == 'tahan' || Yii::app()->getController()->getAction()->controller->id == 'semester'){
 										echo 'Administrasi';
+									}else if(Yii::app()->getController()->getAction()->controller->id == 'jadwal' || Yii::app()->getController()->getAction()->controller->id == 'bagkel'){
+										echo 'KBM';
 									}
 								?></a>
 							</li>
@@ -201,6 +204,20 @@
 								<?php 
 									if (Yii::app()->getController()->getAction()->controller->id == 'guru'){
 										echo 'Guru';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'siswa'){
+										echo 'Siswa';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'mapel'){
+										echo 'Mata Pelajaran';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'kelas'){
+										echo 'Kelas';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'tahan'){
+										echo 'Tahun Ajaran';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'semester'){
+										echo 'Semester';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'jadwal'){
+										echo 'Penyusunan Jadwal';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'bagkel'){
+										echo 'Pembagian Kelas';
 									}
 								?>
 							</li>
@@ -220,21 +237,77 @@
 						<div class="page-header">
 							<h1>
 								<?php
-								if (Yii::app()->getController()->getAction()->controller->id == 'guru'){
+									if (Yii::app()->getController()->getAction()->controller->id == 'guru'){
 										echo 'Guru';
+									} else if (Yii::app()->getController()->getAction()->controller->id == 'siswa'){
+										echo 'Siswa';
+									}  else if (Yii::app()->getController()->getAction()->controller->id == 'mapel'){
+										echo 'Mata Pelajaran';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'kelas'){
+										echo 'Kelas';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'tahan'){
+										echo 'Tahun Ajaran';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'semester'){
+										echo 'Semester';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'jadwal'){
+										echo 'Penyusunan Jadwal';
+									}else if (Yii::app()->getController()->getAction()->controller->id == 'bagkel'){
+										echo 'Pembagian Kelas';
 									}
 								?>
 								<small>
 									<i class="icon-double-angle-right"></i>
 									<?php 
-									if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/list'){
+									if(Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/list'){
 										echo 'Data Guru';
-									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/add'){
-										echo 'Add Data Guru';
-									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/edit'){
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/add'){
+										echo 'Tambah Data Guru';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/edit'){
 										echo 'Edit Data Guru';
-									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/view'){
-										echo 'Profile Guru';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'guru/view'){
+										echo 'Profil Guru';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'siswa/list'){
+										echo 'Data Siswa';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'siswa/add'){
+										echo 'Tambah Data Siswa';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'siswa/edit'){
+										echo 'Edit Data Siswa';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'siswa/view'){
+										echo 'Profil Siswa';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'mapel/list'){
+										echo 'Data Mata Pelajaran';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'mapel/add'){
+										echo 'Tambah Data Mata Pelajaran';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'mapel/edit'){
+										echo 'Edit Data Mata Pelajaran';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'kelas/list'){
+										echo 'Data Kelas';
+									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'kelas/add'){
+										echo 'Tambah Data Kelas';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'kelas/edit'){
+										echo 'Edit Data Kelas';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'tahan/list'){
+										echo 'Data Tahun Ajaran';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'tahan/add'){
+										echo 'Tambah Data Tahun Ajaran';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'tahan/edit'){
+										echo 'Edit Data Tahun Ajaran';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'semester/list'){
+										echo 'Data Semester';
+									} else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'semester/edit'){
+										echo 'Edit Data Semester';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'jadwal/list'){
+										echo 'Data Jadwal';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'jadwal/add'){
+										echo 'Tambah Data Jadwal';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'jadwal/add'){
+										echo 'Edit Data Jadwal';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'bagkel/list'){
+										echo 'Data Pembagian Kelas';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'bagkel/add'){
+										echo 'Tambah Data Pembagian Kelas';
+									}else if (Yii::app()->urlManager->parseUrl(Yii::app()->request) == 'bagkel/add'){
+										echo 'Edit Data Pembagian Kelas';
 									}
 									?>
 								</small>
@@ -423,45 +496,45 @@
 				  { "bSortable": false }
 				] } );
 				
-				var oTable3 = $('#kategori').dataTable( {
-				"aoColumns": [
-			      { "bSortable": false },
-			      null,
-				  { "bSortable": false }
-				] } );
-				
-				var oTable4 = $('#produk').dataTable( {
-				"aoColumns": [
-			      { "bSortable": false },
-			      null, null, null, null, null, null,
-				  { "bSortable": false }
-				] } );
-				
-				var oTable5 = $('#order').dataTable( {
-				"aoColumns": [
-			      { "bSortable": false },
-			      null, null, null, null, null,
-				  { "bSortable": false }
-				] } );
-				
-				var oTable6 = $('#ongkoskirim').dataTable( {
+				var oTable3 = $('#mapel').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
 			      null, null, null,
 				  { "bSortable": false }
 				] } );
 				
-				var oTable7 = $('#hubungi').dataTable( {
+				var oTable4 = $('#kelas').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
 			      null, null, null, null,
 				  { "bSortable": false }
 				] } );
 				
-				var oTable8 = $('#header').dataTable( {
+				var oTable5 = $('#tahan').dataTable( {
+				"aoColumns": [
+			      { "bSortable": false },
+			      null, null, null, null,
+				  { "bSortable": false }
+				] } );
+				
+				var oTable6 = $('#semester').dataTable( {
 				"aoColumns": [
 			      { "bSortable": false },
 			      null, null,
+				  { "bSortable": false }
+				] } );
+				
+				var oTable7 = $('#jadwal').dataTable( {
+				"aoColumns": [
+			      { "bSortable": false },
+			      null, null, null, null,
+				  { "bSortable": false }
+				] } );
+				
+				var oTable8 = $('#bagkel').dataTable( {
+				"aoColumns": [
+			      { "bSortable": false },
+			      null, null, null,
 				  { "bSortable": false }
 				] } );
 				

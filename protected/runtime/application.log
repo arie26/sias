@@ -6404,3 +6404,198 @@ REQUEST_URI=/sias/site/kalender
 HTTP_REFERER=http://localhost/sias/index.php/site/kalender
 ---
 2015/03/12 12:15:18 [trace] [system.CModule] Loading "errorHandler" application component
+2015/03/24 18:02:57 [trace] [system.CModule] Loading "log" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:02:57 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:02:57 [trace] [system.CModule] Loading "clientScript" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:02:57 [trace] [system.CModule] Loading "assetManager" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (328)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+2015/03/24 18:02:57 [trace] [system.CModule] Loading "request" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (328)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+2015/03/24 18:02:58 [trace] [system.CModule] Loading "urlManager" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:02:58 [trace] [system.CModule] Loading "db" application component
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseKelass.php (25)
+in C:\xampp\htdocs\sias\protected\models\Kelass.php (12)
+2015/03/24 18:02:58 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseKelass.php (25)
+in C:\xampp\htdocs\sias\protected\models\Kelass.php (12)
+2015/03/24 18:02:58 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `kelas`
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseKelass.php (25)
+in C:\xampp\htdocs\sias\protected\models\Kelass.php (12)
+2015/03/24 18:02:58 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `kelas`
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseKelass.php (25)
+in C:\xampp\htdocs\sias\protected\models\Kelass.php (12)
+2015/03/24 18:02:58 [trace] [system.db.ar.CActiveRecord] Kelass.findAll()
+in C:\xampp\htdocs\sias\protected\controllers\KelasController.php (50)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:02:58 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `kelas` `t` WHERE status != -1
+in C:\xampp\htdocs\sias\protected\controllers\KelasController.php (50)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:02:58 [trace] [system.db.ar.CActiveRecord] lazy loading Kelass.idGuru
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (66)
+in C:\xampp\htdocs\sias\protected\views\kelas\list.php (54)
+in C:\xampp\htdocs\sias\protected\controllers\KelasController.php (52)
+2015/03/24 18:02:58 [error] [php] include(Guru.php): failed to open stream: No such file or directory (C:\xampp\htdocs\sias\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\sias\framework\db\ar\CActiveRecord.php(386): spl_autoload_call()
+#1 C:\xampp\htdocs\sias\framework\db\ar\CActiveFinder.php(215): model()
+#2 C:\xampp\htdocs\sias\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree()
+#3 C:\xampp\htdocs\sias\framework\db\ar\CActiveRecord.php(271): CActiveFinder->__construct()
+#4 C:\xampp\htdocs\sias\framework\db\ar\CActiveRecord.php(141): Kelass->getRelated()
+#5 C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php(66): Kelass->__get()
+#6 C:\xampp\htdocs\sias\protected\views\kelas\list.php(54): Kelass->__get()
+#7 C:\xampp\htdocs\sias\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\sias\framework\web\CBaseController.php(95): KelasController->renderInternal()
+#9 C:\xampp\htdocs\sias\framework\web\CController.php(869): KelasController->renderFile()
+#10 C:\xampp\htdocs\sias\framework\web\CController.php(782): KelasController->renderPartial()
+#11 C:\xampp\htdocs\sias\protected\controllers\KelasController.php(52): KelasController->render()
+#12 C:\xampp\htdocs\sias\framework\web\actions\CInlineAction.php(49): KelasController->actionList()
+#13 C:\xampp\htdocs\sias\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\sias\framework\web\CController.php(286): KelasController->runAction()
+#15 C:\xampp\htdocs\sias\framework\web\CController.php(265): KelasController->runActionWithFilters()
+#16 C:\xampp\htdocs\sias\framework\web\CWebApplication.php(282): KelasController->run()
+#17 C:\xampp\htdocs\sias\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\sias\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\sias\index.php(13): CWebApplication->run()
+REQUEST_URI=/sias/kelas/list
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (66)
+in C:\xampp\htdocs\sias\protected\views\kelas\list.php (54)
+in C:\xampp\htdocs\sias\protected\controllers\KelasController.php (52)
+2015/03/24 18:02:58 [trace] [system.CModule] Loading "errorHandler" application component
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (66)
+in C:\xampp\htdocs\sias\protected\views\kelas\list.php (54)
+in C:\xampp\htdocs\sias\protected\controllers\KelasController.php (52)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "log" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "clientScript" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "assetManager" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (328)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "request" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (328)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "urlManager" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "db" application component
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseGurus.php (32)
+in C:\xampp\htdocs\sias\protected\models\Gurus.php (12)
+2015/03/24 18:11:24 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseGurus.php (32)
+in C:\xampp\htdocs\sias\protected\models\Gurus.php (12)
+2015/03/24 18:11:24 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `guru`
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseGurus.php (32)
+in C:\xampp\htdocs\sias\protected\models\Gurus.php (12)
+2015/03/24 18:11:24 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `guru`
+in C:\xampp\htdocs\sias\protected\extensions\AweCrud\components\AweActiveRecord.php (36)
+in C:\xampp\htdocs\sias\protected\models\_base\BaseGurus.php (32)
+in C:\xampp\htdocs\sias\protected\models\Gurus.php (12)
+2015/03/24 18:11:24 [trace] [system.db.ar.CActiveRecord] Gurus.findAll()
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (66)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `guru` `t` WHERE status != -1
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (66)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "securityManager" application component
+in C:\xampp\htdocs\sias\protected\views\guru\list.php (87)
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (68)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "statePersister" application component
+in C:\xampp\htdocs\sias\protected\views\guru\list.php (87)
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (68)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (2)
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (68)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "session" application component
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (68)
+2015/03/24 18:11:24 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (68)
+2015/03/24 18:11:24 [trace] [system.db.CDbCommand] Executing SQL: DELETE FROM 'YiiSession' WHERE expire<:expire
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (68)
+2015/03/24 18:11:24 [trace] [system.db.CDbCommand] Querying SQL: SELECT "data"
+FROM 'YiiSession'
+WHERE expire>:expire AND id=:id
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\GuruController.php (68)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "log" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "clientScript" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "assetManager" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (328)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "request" application component
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (328)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (103)
+in C:\xampp\htdocs\sias\protected\extensions\bootstrap\components\Bootstrap.php (84)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "urlManager" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\xampp\htdocs\sias\index.php (13)
+2015/03/24 18:11:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "media/bs3".' in C:\xampp\htdocs\sias\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\sias\framework\web\CWebApplication.php(141): CWebApplication->runController('media/bs3')
+#1 C:\xampp\htdocs\sias\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\sias\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sias/media/bs3/js/bootstrap.min.js
+HTTP_REFERER=http://localhost/sias/guru/list
+---
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "errorHandler" application component
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (2)
+in C:\xampp\htdocs\sias\protected\controllers\SiteController.php (95)
+2015/03/24 18:11:24 [trace] [system.CModule] Loading "session" application component
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\SiteController.php (95)
+2015/03/24 18:11:24 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\SiteController.php (95)
+2015/03/24 18:11:24 [trace] [system.db.CDbCommand] Executing SQL: DELETE FROM 'YiiSession' WHERE expire<:expire
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\SiteController.php (95)
+2015/03/24 18:11:24 [trace] [system.db.CDbCommand] Querying SQL: SELECT "data"
+FROM 'YiiSession'
+WHERE expire>:expire AND id=:id
+in C:\xampp\htdocs\sias\protected\views\layouts\main.php (1)
+in C:\xampp\htdocs\sias\protected\views\layouts\column1.php (11)
+in C:\xampp\htdocs\sias\protected\controllers\SiteController.php (95)
